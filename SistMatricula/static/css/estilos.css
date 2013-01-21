@@ -1,0 +1,30 @@
+body 
+{
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 16px;
+}
+header
+{
+	background-color: #ccc; 
+}
+#logo {
+	margin: 0.5em;
+	padding: 0.5em;
+}
+.titulo {
+	color: #f00;
+}
+nav {
+	margin: 30px;
+}
+nav ul li{
+	background-color: #000;
+	padding: 1em;
+	border-radius: 0.5em;
+	margin: 5px 5px 10px;
+	display: inline-block;
+}
+nav ul li a{
+	color: #fff;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='es'> 
+    <head>    
+        <meta charset="utf-8"/>
+        <title> {% block titulo %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/elicia.css">       
+        <script type="text/javascript" src="prefixfree.min.js"></script>
+    <body>   
+        <header>
+            <div>
+                
+                <hgroup id="logo">   
+                    <h1>Sistema de Matriculas</h1>
+                    <h2>Informatica UNT</h2>
+                </hgroup>                
+                
+                <nav id ="enlaces">        
+                    <ul>
+                        <li><a href="/alumnos" title="Alumnos"><strong>Alumnos</strong></a></li>
+                        <li><a href="/cursos"><strong>Cursos</strong></a></li>
+                        <li><a href="/profesores"><strong>Profesores</strong></a></li>
+                        <li><a href="/contactenos"><strong>Contáctenos</strong></a></li>
+                        <li><a href="/matriculas"><strong>Matricula</strong></a></li>
+                    </ul>
+                </nav>
+                <menu id= "login">    
+                    {% if user.is_authenticated %}
+                    <ul>
+                        <li><a id="nombre" href="/{{ user.username }}/">Hola {{user.username|capfirst}}</a></li>
+                        <li><a id="cerrar" href="/cerrar/">Cerrar &raquo;</a></li>
+                    </ul>                        
+                    {% else %}
+                    <form action='/login/' method='post'>
+                        {% csrf_token %}
+                        <input  type="text" name="username" value="" id="username">
+                        <input  type="password" name="password" value="" id="password">
+                        <button type="submit" >Ingresar</button>
+                        <input type="hidden" name="next" value="{{ NEXT }}" />
+                    </form>
+                    {% endif %}
+                    <a id="registrar" href="/usuario/nuevo">Regístrate &raquo;</a>  
+                </menu> 
+            </div>
+            
+                     
+        </header>
+
+        <section>
+            <div id="posicion">
+                <div id="subtitulo"> 
+                    <h3>{% block encabezado %}{% endblock %}</h3>
+                    <h4> {% block nombre %}{% endblock %} </h4>
+                </div>
+                <div id="contenido"> {% block contenido %}{% endblock %}
+                </div>
+            </div>      
+         </section>
+    </body>
+    <footer> Sistema desarrollado por QAYSEN</footer>
+</html>
