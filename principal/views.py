@@ -3,7 +3,7 @@ from principal.models import Alumno, Profesor, Curso, Matricula, Dictar, Nota
 from django.shortcuts import render_to_response,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect 
 from django.template import RequestContext
-from principal.forms import AlumnoForm, CursoForm, ProfesorForm, ContactoForm, MatriculaForm
+from principal.forms import AlumnoForm, CursoForm, ProfesorForm, ContactoForm, MatriculaForm, EditarAlumno
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 
@@ -160,7 +160,7 @@ def perfil(request, username):
 	else:
 		return render_to_response('perfil_no_logueado.html', {'usuario':usuario_no_logueado}, context_instance=RequestContext(request)) 
 		
-@login_required
+
 def editar_alumno(request, object_id):
     try:
         alumno = Alumno.objects.get(id = object_id)
@@ -168,13 +168,13 @@ def editar_alumno(request, object_id):
     except Alumno.DoesNotExist:
         pass
 
-    if request.POST:
-        form = EditarAlumno(request.POST, instance = alumno)
+    if request.method=='POST':
+        alum_form = EditarAlumno(request.POST, instance = alumno)
 
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/alumnos/')
-        else:
-            form = EditarAlumno(instance = alumno)
-
-    return render_to_response("editar_alumno.html", {"alumno": alumno, 'form': form})
+        if alum_form .is_valid():
+           alum_form .save()
+           return HttpResponseRedirect('/alumnos/')
+    else:
+        alum_form  = EditarAlumno(instance = alumno)
+	
+	return render_to_response('editar_alumno.html', {'alumno': alumno, 'alum_form': alum_form}, context_instance=RequestContext(request))

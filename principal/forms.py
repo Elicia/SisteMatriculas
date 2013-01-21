@@ -3,8 +3,6 @@ from principal.models import Alumno, Profesor, Curso, Matricula, Dictar, Nota
 from django import forms
 from django.forms import ModelForm
 
-
-
 class AlumnoForm(ModelForm):
 	class Meta:
 		model=Alumno
@@ -25,6 +23,7 @@ class MatriculaForm(ModelForm):
 	class Meta:
 		model=Matricula
 
-class EditarAlumno(forms.ModelForm):
+class EditarAlumno(ModelForm):
     class Meta:
         model = Alumno
+        fields = ('nombre', 'direccion', 'telefono')

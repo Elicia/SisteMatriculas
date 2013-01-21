@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+ <h2>Editar alumno:</h2>
+
+	<form action="" method="post">{% csrf_token %}
+    {{alum_form.as_p}}
+    <input type="submit" value="Guardar cambios">
+</form>
+
+{% endblock %}
+
+
+
