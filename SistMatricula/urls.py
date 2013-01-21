@@ -27,4 +27,5 @@ urlpatterns = patterns('',
     url(r'^login/$', 'principal.views.mylogin'),
     url(r'^(?P<username>[-\w]+)/$', 'principal.views.perfil'),
     url(r'^alumnos/editar/(.+)/$', 'principal.views.editar_alumno'),
+    url(r'^alumnos/eliminar/(.+)/$', 'principal.views.eliminar_alumno'),
 )

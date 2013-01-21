@@ -160,7 +160,7 @@ def perfil(request, username):
 	else:
 		return render_to_response('perfil_no_logueado.html', {'usuario':usuario_no_logueado}, context_instance=RequestContext(request)) 
 		
-
+@login_required
 def editar_alumno(request, object_id):
     try:
         alumno = Alumno.objects.get(id = object_id)
@@ -178,3 +178,10 @@ def editar_alumno(request, object_id):
         alum_form  = EditarAlumno(instance = alumno)
 	
 	return render_to_response('editar_alumno.html', {'alumno': alumno, 'alum_form': alum_form}, context_instance=RequestContext(request))
+
+@login_required
+def eliminar_alumno(request, object_id):
+	alumno = Alumno.objects.get(id = object_id)
+	alumno.delete()
+	return render_to_response('eliminar.html',{'alumno': alumno},context_instance = RequestContext(request))
+    

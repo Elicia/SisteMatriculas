@@ -31,7 +31,7 @@ Muestra lista de alumnos
 			<td>{{ alum.correo }}</td>
 			<td>{{ cliente.curso }}</td>
 			<td><a href="/alumnos/editar/{{alum.id}}">Editar</a></td>
-			<td><a href="#">Eliminar</a></td>
+			<td><a href="/alumnos/eliminar/{{alum.id}}">Eliminar</a></td>
 		</tr>
 		{% endfor %}
 	</table>
