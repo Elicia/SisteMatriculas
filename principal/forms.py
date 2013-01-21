@@ -25,6 +25,7 @@ class MatriculaForm(ModelForm):
 	class Meta:
 		model=Matricula
 
-class EditarAlumno(forms.ModelForm):
+class EditarAlumno(ModelForm):
     class Meta:
         model = Alumno
+        fields = ('nombre', 'direccion', 'telefono', 'correo')
