@@ -4,45 +4,92 @@
         <meta charset="utf-8"/>
         <title> {% block titulo %}{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/elicia.css">       
+        <!--<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/elicia.css">-->
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/edwin.css">
         <script type="text/javascript" src="prefixfree.min.js"></script>
     <body>   
         <header>
-            <div>
-                
-                <hgroup id="logo">   
-                    <h1>Sistema de Matriculas</h1>
-                    <h2>Informatica UNT</h2>
-                </hgroup>                
-                
-                <nav id ="enlaces">        
-                    <ul>
-                        <li><a href="/alumnos" title="Alumnos"><strong>Alumnos</strong></a></li>
-                        <li><a href="/cursos"><strong>Cursos</strong></a></li>
-                        <li><a href="/profesores"><strong>Profesores</strong></a></li>
-                        <li><a href="/contactenos"><strong>Contáctenos</strong></a></li>
-                        <li><a href="/matriculas"><strong>Matricula</strong></a></li>
-                    </ul>
-                </nav>
-                <menu id= "login">    
-                    {% if user.is_authenticated %}
-                    <ul>
-                        <li><a id="nombre" href="/{{ user.username }}/">Hola {{user.username|capfirst}}</a></li>
-                        <li><a id="cerrar" href="/cerrar/">Cerrar &raquo;</a></li>
-                    </ul>                        
-                    {% else %}
-                    <form action='/login/' method='post'>
-                        {% csrf_token %}
-                        <input  type="text" name="username" value="" id="username">
-                        <input  type="password" name="password" value="" id="password">
-                        <button type="submit" >Ingresar</button>
-                        <input type="hidden" name="next" value="{{ NEXT }}" />
-                    </form>
-                    {% endif %}
-                    <a id="registrar" href="/usuario/nuevo">Regístrate &raquo;</a>  
-                </menu> 
-            </div>
-            
+
+            <nav class="nav" id="main-nav">
+                <ul>
+                    <li class="nav1">
+                        <a href="">Sistema de Matriculas</a>
+                        <div class="subnav">
+                            <ul>
+                                <li><a href="">Subnav1</a></li>
+                                <li><a href="">Subnav1</a></li>
+                                <li><a href="">Subnav1</a></li>
+                                <li><a href="">Subnav1</a></li>
+                                <li><a href="">Subnav1</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav2">
+                        <a href="/alumnos">Alumnos</a>
+                        <div class="subnav">
+                            <ul>
+                                <li><a href="alumnos/agregar">Agregar</a></li>
+                                <li><a href="alumnos/editar">Editar</a></li>
+                                <li><a href="alumnos/listar">Listar</a></li>
+                                <li><a href="alumnos/buscar">Buscar</a></li>
+                                <li><a href="alumnos/Eliminar">Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav3">
+                        <a href="/profesores">Profesores</a>
+                        <div class="subnav">
+                            <ul>
+                                <li><a href="profesores/agregar">Agregar</a></li>
+                                <li><a href="profesores/editar">Editar</a></li>
+                                <li><a href="profesores/listar">Listar</a></li>
+                                <li><a href="profesores/buscar">Buscar</a></li>
+                                <li><a href="profesores/Eliminar">Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav4">
+                        <a href="/cursos">Cursos</a>
+                        <div class="subnav">
+                            <ul>
+                                <li><a href="cursos/agregar">Agregar</a></li>
+                                <li><a href="cursos/editar">Editar</a></li>
+                                <li><a href="cursos/listar">Listar</a></li>
+                                <li><a href="cursos/buscar">Buscar</a></li>
+                                <li><a href="cursos/Eliminar">Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav5">
+                        <a href="/matriculas">Matriculas</a>
+                        <div class="subnav">
+                            <ul>
+                                <li><a href="matriculas/agregar">Agregar</a></li>
+                                <li><a href="matriculas/editar">Editar</a></li>
+                                <li><a href="matriculas/listar">Listar</a></li>
+                                <li><a href="matriculas/buscar">Buscar</a></li>
+                                <li><a href="matriculas/Eliminar">Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>                
+            <menu class= "login">    
+                {% if user.is_authenticated %}
+                <ul>
+                    <li><a id="nombre" href="/{{ user.username }}/">Hola {{user.username|capfirst}}</a></li>
+                    <li><a id="cerrar" href="/cerrar/">Cerrar &raquo;</a></li>
+                </ul>                        
+                {% else %}
+                <form action='/login/' method='post'>
+                    {% csrf_token %}
+                    <input  type="text" name="username" value="" id="username">
+                    <input  type="password" name="password" value="" id="password">
+                    <button type="submit" >Ingresar</button>
+                    <input type="hidden" name="next" value="{{ NEXT }}" />
+                </form>
+                {% endif %}
+            </menu>            
                      
         </header>
 

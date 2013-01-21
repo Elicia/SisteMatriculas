@@ -1,0 +1,98 @@
+* { margin: 0; padding: 0;}
+menu { margin: 0; padding: 0; margin-left: 10px;}
+menu ul li { display: inline-block; }
+body {
+	background: #fff;
+}
+header {
+	background: #000;
+}
+a {
+	text-decoration: none;
+}
+
+.nav, .login {
+	display: inline-block;
+}
+header {
+	height: 35px;
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+}
+.nav {
+	height: 35px;
+	margin: 0 auto;
+	position: relative;
+}
+.nav ul {
+	background-color: #000;
+	height: 35px;
+	display: block;
+}
+.nav ul li, .nav ul li a {
+	display: block;
+	float: left;
+}
+
+.nav ul li a {
+	color: #fff;
+	font: bold 12px/35px arial;
+	padding: 0 10px;
+}
+.nav ul li a:hover, .nav ul li:hover a {
+	background-color: #f7cb26;
+}
+.subnav {
+	background-color: #e45928;
+	display: none;
+	left: 0;
+	margin: 0 auto;
+	padding: 3px 10px 2px;
+	position: absolute;
+	top: 35px;
+	width: 940px;
+}
+.subnav ul {
+	background: none;
+	height: 22px;
+}
+.subnav ul li, .subnav ul li a {
+	display: block;
+	float: left;
+}
+.subnav ul li {
+	border: none;
+}
+.subnav ul li a {
+	background: none !important;
+	color: #fff;
+	font: 11px/21px Arial;
+	padding: 0 10px;
+}
+.subnav ul li a:hover, .subnav ul li a.activo {
+	background: #df3826 !important;
+	text-decoration: none;
+}
+
+
+.nav ul li.nav1 .subnav, 
+.nav ul li.nav2 .subnav, 
+.nav ul li.nav3 .subnav, 
+.nav ul li.nav4 .subnav,
+.nav ul li.nav5 .subnav, 
+.nav ul li.nav6 .subnav, 
+.nav ul li.nav7 .subnav { display: none; }
+
+.nav ul li.nav1:hover .subnav,
+.nav ul li.nav2:hover .subnav,
+.nav ul li.nav3:hover .subnav, 
+.nav ul li.nav4:hover .subnav, 
+.nav ul li.nav5:hover .subnav, 
+.nav ul li.nav6:hover .subnav, 
+.nav ul li.nav7:hover .subnav { background: #e45928 !important; display: block; /* Para llevar al fondo o adelante */z-index: 9999;}
+
+section {
+	width: 940px;
+	margin: 0 auto;
+}
